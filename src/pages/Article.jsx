@@ -1,4 +1,3 @@
-import { RadioGroup } from "@headlessui/react";
 import { BarLoader } from "react-spinners";
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../layouts/AdminLayout";
@@ -18,7 +17,7 @@ export default function Dashboard() {
         title: data.title.toString(),
         content: data.content.toString(),
       })
-      .then((result) => {
+      .then(() => {
         alert("Article update success");
       })
       .catch((err) => {
@@ -46,6 +45,7 @@ export default function Dashboard() {
         .finally(() => {
           setLoading(false);
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (

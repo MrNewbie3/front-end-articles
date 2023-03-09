@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function Dashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const color = ["#3ESCB8", "    #FO623E", "#FFBE83"];
   useEffect(() => {
     if (data === null)
       axios
@@ -37,10 +38,10 @@ export default function Dashboard() {
             <RadioGroup>
               <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
               <div className="flex flex-col gap-y-2">
-                {data.map((data) => (
+                {data.map((data, index) => (
                   <Link to={"/article/" + data._id}>
-                    <RadioGroup.Option key={data} value={data} className={`bg-[${data.color}] relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md hover:scale-110 transition-all duration-1 00 ease-linear`}>
-                      <RadioGroup.Label as="p" className={`font-medium text-white `}>
+                    <RadioGroup.Option key={data} value={data} className={`bg-[${color[index]}] relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md hover:scale-110 transition-all duration-1 00 ease-linear`}>
+                      <RadioGroup.Label as="p" className={`font-medium text-black `}>
                         {data.title}
                       </RadioGroup.Label>
                       <RadioGroup.Description as="span" className={`inline ${"text-gray-500"}`}>
